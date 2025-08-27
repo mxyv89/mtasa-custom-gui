@@ -1,1 +1,17 @@
-
+<meta>
+	<script src="Useful/Classlib.lua" type="client" />
+	<script src="Classes/2D/UIGeneral.lua" type="client" />
+	<script src="Classes/2D/UIWindow.lua" type="client" />
+	
+	<script src="Events/2D/UIGeneral.lua" type="client" />
+	
+	<script src="Functions/2D/UIWindow.lua" type="client" />
+	
+	<script src="Managers/2D/Manager2D.lua" type="client" />
+	
+	<script src="Useful/Utils.lua" type="client" />
+	
+	<script src="Source.lua" type="client" />
+	
+	<file src="Images/BaseTexture.png" type="client" />
+</meta>
