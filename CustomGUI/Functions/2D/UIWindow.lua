@@ -31,25 +31,51 @@ function createCustomWindow(x,y,width,height,name,isRelative)
 		UIManager2DInstance:addElement('UIWindow',element,instance,{window,header,title})
 		return element
 	end
-	return checkArgs
+	return false
 end
 
 function customWindowSetMovable(element,isMovable)
-	assert(getElementType(element) == "UIWindow","Bad argument @'customWindowSetMovable' expected a 'UIWindow' element at argument 1, got "..getElementType(element))
-	callElementMethod(element,"setMovable",isMovable)
+	local checkArgs = argumentsChecker("customWindowSetMovable",{
+										{element,"UIWindow"},
+										{isMovable,"boolean"}
+	})
+	if checkArgs then
+		callElementMethod(element,"setMovable",isMovable)
+		return true
+	end
+	return false
 end
 
 function customWindowSetSizable(element,isSizable)
-	assert(getElementType(element) == "UIWindow","Bad argument @'customWindowSetSizable' expected a 'UIWindow' element at argument 1, got "..getElementType(element))
-	callElementMethod(element,"setSizable",isSizable)
+	local checkArgs = argumentsChecker("customWindowSetSizable",{
+										{element,"UIWindow"},
+										{isSizable,"boolean"}
+	})
+	if checkArgs then 
+		callElementMethod(element,"setSizable",isSizable)
+		return true
+	end
+	return false
 end
 
 function customWindowIsSizable(element)
-	assert(getElementType(element) == "UIWindow","Bad argument @'customWindowIsSizable' expected a 'UIWindow' element at argument 1, got "..getElementType(element))
-	return callElementMethod(element,"isSizable")
+	local checkArgs = argumentsChecker("customWindowIsSizable",{
+										{element,"UIWindow"}
+	})
+	if checkArgs then
+		callElementMethod(element,"isSizable")
+		return true
+	end
+	return false
 end
 
 function customWindowIsMovable(element)
-	assert(getElementType(element) == "UIWindow","Bad argument @'customWindowIsMovable' expected a 'UIWindow' element at argument 1, got "..getElementType(element))
-	return callElementMethod(element,"isMovable")
+	local checkArgs = argumentsChecker("customWindowIsMovable",{
+										{element,"UIWindow"}
+	})
+	if checkArgs then
+		callElementMethod(element,"isMovable")
+		return true
+	end
+	return false
 end

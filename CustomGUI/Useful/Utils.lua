@@ -5,7 +5,6 @@ function isMouseInPosition ( x, y, width, height )
 	local sx, sy = guiGetScreenSize ( )
 	local cx, cy = getCursorPosition ( )
 	local cx, cy = ( cx * sx ), ( cy * sy )
-	
 	return ( ( cx >= x and cx <= x + width ) and ( cy >= y and cy <= y + height ) )
 end
 
@@ -16,7 +15,6 @@ function isCursorOverText(posX, posY, sizeX, sizeY)
 	local cX, cY = getCursorPosition()
 	local screenWidth, screenHeight = guiGetScreenSize()
 	local cX, cY = (cX*screenWidth), (cY*screenHeight)
-
 	return ( (cX >= posX and cX <= posX+(sizeX - posX)) and (cY >= posY and cY <= posY+(sizeY - posY)) )
 end
 
@@ -32,25 +30,19 @@ function fromColor(color)
 		local green = bitExtract(color, 8, 8)
 		local red = bitExtract(color, 16, 8)
 		local alpha = bitExtract(color, 24, 8)
-		
 		return { red, green, blue, alpha }
 	end
 end
 
 function RGBToHex(red, green, blue, alpha)
-	
-	-- Make sure RGB values passed to this function are correct
 	if( ( red < 0 or red > 255 or green < 0 or green > 255 or blue < 0 or blue > 255 ) or ( alpha and ( alpha < 0 or alpha > 255 ) ) ) then
 		return nil
 	end
-
-	-- Alpha check
 	if alpha then
 		return string.format("#%.2X%.2X%.2X%.2X", red, green, blue, alpha)
 	else
 		return string.format("#%.2X%.2X%.2X", red, green, blue)
 	end
-
 end
 
 function callElementMethod(element,f,...)
